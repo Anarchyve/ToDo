@@ -1,0 +1,76 @@
+body {
+  padding: 30px;
+  text-align: center;
+  color: #2d3436;
+  background-color: #dfe6e9;
+}
+
+.did{
+  color: darkgray;
+}
+
+h1 {
+  color: #2d3436;
+  text-align: left;
+}
+
+.toDoItem{
+  margin: 30px;
+}
+
+.js-clock{
+  animation: fadeIn ease 8s;
+}
+
+.js-toDoForm{
+  animation: fadeIn ease 8s;
+  text-align: center;
+}
+
+.js-toDoList{
+  list-style-type: none;
+  padding-left: 0px;
+  animation: fadeIn ease 8s;
+  text-align: center;
+  font-size: 20px;
+  font-weight: lighter;
+  font-style: oblique;
+}
+
+.clicked {
+color: #d35400;
+  }
+
+.btn{
+  cursor: pointer;
+}
+
+.form ,.greetings{
+  display: none;
+  font-size: 30px;
+  font-weight: lighter;
+  margin-bottom: 100px;
+}
+
+.showing {
+  display:block;
+  animation: fadeIn ease 8s;
+}
+
+@keyframes fadeIn {
+  from{
+    opacity: 0;
+  }to{
+    opacity: 1;
+  }
+}
+
+.bgImage{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  animation: fadeIn .5s linear;
+}
