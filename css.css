@@ -1,3 +1,26 @@
+/* 컬러피커 스타일 */
+
+.color-pickers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+
+.color-pickers label {
+  margin: 0 0.5em;
+  font-size: 1em;
+}
+
+.color-pickers input[type="color"] {
+  margin: 0 1em;
+  width: 40px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+}
+
+
 body {
   padding: 30px;
   text-align: center;
