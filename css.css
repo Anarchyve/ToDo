@@ -1,10 +1,28 @@
-/* 컬러피커 스타일 */
+/* CSS 변수 선언 */
+:root {
+  --main-bg-color: #f0f2f5;
+  --main-text-color: #333;
+  --accent-color: #0984e3;
+  --font-family: 'Noto Sans KR', sans-serif;
+  --text-color: #000000; /* 컬러 피커 글씨색 */
+  --favorite-links-bg: rgba(255, 255, 255, 0.8); /* 자주 가는 사이트 배경색 */
+  --favorite-links-text: #2d3436; /* 자주 가는 사이트 텍스트 색상 */
+  --favorite-links-font-size: 0.8em; /* 자주 가는 사이트 폰트 크기 */
+}
 
+/* 컬러피커 스타일 */
 .color-pickers {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1em;
+  animation: fadeIn ease 8s;
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 .color-pickers label {
@@ -20,15 +38,58 @@
   cursor: pointer;
 }
 
+/* 자주 가는 웹사이트 링크 스타일 */
+.favorite-links {
+  position: fixed; /* 고정 위치 */
+  top: 10px; /* 상단에서 10px 떨어짐 */
+  right: 10px; /* 우측에서 10px 떨어짐 */
+  background-color: var(--favorite-links-bg);
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  font-family: var(--font-family);
+  font-size: var(--favorite-links-font-size);
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  animation: fadeIn ease 8s;
+  z-index: 1000; /* 다른 요소들보다 위에 표시 */
+}
 
+.favorite-links span {
+  font-weight: bold;
+  color: var(--favorite-links-text);
+}
+
+.favorite-links a {
+  color: var(--favorite-links-text);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  transition: color 0.3s ease;
+}
+
+.favorite-links a:hover {
+  color: var(--accent-color);
+}
+
+.favorite-links a i {
+  font-size: 1em;
+}
+
+
+/* 전체 스타일 */
 body {
+  font-family: 'Noto Sans KR', sans-serif;
   padding: 30px;
   text-align: center;
   color: #2d3436;
   background-color: #dfe6e9;
+  margin: 0;
 }
 
-.did{
+.did {
   color: darkgray;
 }
 
@@ -37,38 +98,113 @@ h1 {
   text-align: left;
 }
 
-.toDoItem{
-  margin: 30px;
+.toDoItem {
+  margin: 15px;
 }
 
-.js-clock{
+.js-clock {
   animation: fadeIn ease 8s;
 }
 
-.js-toDoForm{
-  animation: fadeIn ease 8s;
-  text-align: center;
-}
-
-.js-toDoList{
-  list-style-type: none;
-  padding-left: 0px;
+.js-toDoForm {
   animation: fadeIn ease 8s;
   text-align: center;
-  font-size: 20px;
-  font-weight: lighter;
-  font-style: oblique;
 }
 
-.clicked {
-color: #d35400;
-  }
+.js-toDoList {
+  animation: fadeIn ease 8s;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-.btn{
+.js-toDoList li {
+  margin-bottom: 0.5em;
+  padding: 0.75em;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 공간을 양쪽으로 분배 */
+  width: 100%; /* 리스트 아이템의 너비를 부모의 너비에 맞춤 */
+  gap: 1em; /* 텍스트와 버튼 사이의 간격 */
+  font-family: 'Noto Sans KR', sans-serif; /* font-family로 수정 */
+}
+
+.js-toDoList li span {
+  flex-grow: 1;
+  text-align: left;
+  margin-right: 1em; /* 텍스트와 버튼 사이의 간격 */
+}
+
+.js-toDoList li button {
+  background-color: #555; /* 무채색 배경 */
+  color: #fff;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* 부드러운 전환 효과 */
+  font-size: 0.9em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+  display: flex;
+  align-items: center;
+  gap: 0.5em; /* 아이콘과 텍스트 사이의 간격 */
 }
 
-.form ,.greetings{
+.js-toDoList li button:hover {
+  background-color: #333; /* hover 시 더 진한 무채색 */
+  transform: translateY(-2px); /* 약간 위로 이동 */
+}
+
+.js-toDoList li button:active {
+  background-color: #222; /* 클릭 시 더 진한 무채색 */
+  transform: translateY(0); /* 클릭 시 원래 위치 */
+}
+
+/* 버튼 클래스 (btn) 스타일 */
+.btn {
+  animation: fadeIn ease 8s;
+  font-family: 'Noto Sans KR', sans-serif;
+  align-content: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+  background-color: #555; /* 무채색 배경 */
+  color: #fff;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* 부드러운 전환 효과 */
+  font-size: 0.9em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+  display: flex;
+  align-items: center;
+  gap: 0.5em; /* 아이콘과 텍스트 사이의 간격 */
+}
+
+.btn:hover {
+  background-color: #333; /* hover 시 더 진한 무채색 */
+  transform: translateY(-2px); /* 약간 위로 이동 */
+}
+
+.btn:active {
+  background-color: #222; /* 클릭 시 더 진한 무채색 */
+  transform: translateY(0); /* 클릭 시 원래 위치 */
+}
+
+/* js-weather 스타일 */
+.js-weather {
+  animation: fadeIn ease 8s;
+  font-size: 1em;
+  margin-top: 1em;
+  color: #333;
+}
+
+/* 폼과 인사말 숨김 */
+.form, .greetings {
   display: none;
   font-size: 30px;
   font-weight: lighter;
@@ -76,19 +212,22 @@ color: #d35400;
 }
 
 .showing {
-  display:block;
   animation: fadeIn ease 8s;
+  display: block;
+  margin: auto;
 }
 
+/* 키프레임 애니메이션 */
 @keyframes fadeIn {
-  from{
+  from {
     opacity: 0;
-  }to{
+  }
+  to {
     opacity: 1;
   }
 }
 
-.bgImage{
+.bgImage {
   position: absolute;
   top: 0;
   left: 0;
@@ -96,4 +235,35 @@ color: #d35400;
   height: 100%;
   z-index: -1;
   animation: fadeIn .5s linear;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 600px) {
+  body {
+    padding: 15px;
+  }
+
+  .js-clock {
+    font-size: 1.5em;
+  }
+
+  .form input {
+    width: 100%;
+  }
+
+  .js-toDoList li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5em; /* 간격 조절 */
+  }
+
+  .js-toDoList li button {
+    margin-left: 5px;
+    margin-top: 0.5em;
+  }
+
+  .btn {
+    width: 100%; /* 버튼을 전체 너비로 확장 */
+    justify-content: center;
+  }
 }

@@ -1,41 +1,65 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ko" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>WUUT</title>
+    <title>what do you do today</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css.css">
+    <!-- Google Fonts 추가 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap">
+    <!-- Font Awesome 추가 (아이콘 사용 시) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   </head>
   <body>
+    <!-- 자주 가는 웹사이트 링크 컨테이너 추가 -->
+    <div class="favorite-links">
+      <span></span>
+      <a href="https://www.google.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> Google</a>
+      <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-video"></i> YouTube</a>
+      <a href="https://www.github.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-code"></i> GitHub</a>
+      <!-- 필요에 따라 더 많은 링크를 추가하세요 -->
+    </div>
+    
+    <!-- 기존 콘텐츠들 -->
     <div class="js-clock">
       <h1>00:00</h1>
     </div>
     <form class="js-form form">
-      <input type="text" placeholder="Your name"/>
+      <label for="username">Your Name:</label>
+      <input type="text" id="username" name="username" placeholder="Your name" autocomplete="name" />
     </form>
-    <h4 class= "js-greetings greetings"></h4>
-    <ul class ="js-toDoList">
+    <h4 class="js-greetings greetings"></h4>
+    <ul class="js-toDoList">
     </ul>
     <form class="js-toDoForm form">
-      <input type="text" placeholder="Write a todo">
+      <label for="todo-input"></label>
+      <input type="text" id="todo-input" name="todo" placeholder="Write a todo" autocomplete="off" />
     </form>
-    <span class="js-weather"></span>
     <br>
-    <button class="js-reset">reset</button>
-    <script src="clock.js" charset="utf-8"></script>
-    <script src="greeting.js" charset="utf-8"></script>
-    <script src="todo.js" charset="utf-8"></script>
-    <script src="bg.js" charset="utf-8"></script>
-    <script src="weather.js" charset="utf-8"></script>
-  </body>
-  <footer>
+    <span class="js-weather">Weather: Sunny, 25°C</span>
+    <br>
+    <br>
+    <!-- 컬러 피커 영역 -->
     <div class="color-pickers">
       <label for="bg-color-picker">배경색 선택: </label>
       <input type="color" id="bg-color-picker" name="bg-color-picker" value="#ffffff">
-  
+
       <label for="text-color-picker">글씨 색상 선택: </label>
       <input type="color" id="text-color-picker" name="text-color-picker" value="#000000">
     </div>
-<script src="colorPicker.js" charset="utf-8"></script>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <button class="js-reset btn" type="button"><i class="fas fa-redo"></i> Reset</button>
 
-  </footer>  
+    <!-- 스크립트들 -->
+    <script src="clock.js" charset="utf-8" defer></script>
+    <script src="greeting.js" charset="utf-8" defer></script>
+    <script src="todo.js" charset="utf-8" defer></script>
+    <script src="bg.js" charset="utf-8" defer></script>
+    <script src="weather.js" charset="utf-8" defer></script>
+    <script src="colorPicker.js" charset="utf-8" defer></script>
+  </body>
 </html>
